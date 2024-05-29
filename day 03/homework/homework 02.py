@@ -1,17 +1,24 @@
-name1 = "piqria "
-name2 = "sexniashvili"
-name3 = "vladimer "
-name4 = "zaliani"
-name5 = "laura "
-name6 = "zaliani"
-name7 = "barbare "
-name8 = "zaliani"
-#chemi ojaxis wevrebi
-#dedachemi
-print(name1 + name2,"dedachemi")
-#mamachemi
-print(name3 + name4,"mamachemi")
-#bebiachemi
-print(name5 + name6,"bebicahemi")
-#chemi daiko
-print(name7 + name8,"chemi daiko")
+num1 = 153
+num2 = 193
+result1 = num1 + num2
+print(result1)
+
+num3 = 863
+num4 = 351
+result2 = num3 + num4
+print(result2)
+
+num5 = 953
+num6 = 414
+result3 = num5 + num6
+print(result3)
+
+num7 = 531
+num8 = 415
+result4 = num7 + num8
+print(result4)
+
+num9 = 853
+num10 = 635
+result5 = num9 + num10
+print(result5)
