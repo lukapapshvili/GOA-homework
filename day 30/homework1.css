@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.product-box {
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.product-name {
+    font-size: 1.5em;
+    color: #333;
+    margin: 15px 0;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+}
+
+.product-button {
+    background-color: rgb(0, 255, 21);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 15px 0;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover {
+    background-color: rgb(0, 0, 143);
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.2em;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.nav-link:visited {
+    color: #ddd;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: #fff;
+    background-color: #555;
