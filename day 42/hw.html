@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Demo</h1>
+    <button id="myButton">Click Me</button>
+
+    <script>
+        // ღილაკზე დაჭერისთვის მოვლენების მსმენელი
+        document.getElementById('myButton').addEventListener('click', function() {
+            // გამაფრთხილებელი მესიჯი
+            alert('Button Clicked');
+        });
+
+        // ორი ცვლადი, სადაც შეინახავთ რიცხვებს
+        let num1 = 10; // პირველი რიცხვი
+        let num2 = 5;  // მეორე რიცხვი
+
+        // შევცვლით ცვლადების მნიშვნელობები
+        num1 = 20; // num1-ის ახალი მნიშვნელობა
+        num2 = 3;  // num2-ის ახალი მნიშვნელობა
+
+        // მათემატიკური ოპერაციები
+        let sum = num1 + num2; // რიცხვების ჯამი
+        let difference = num1 - num2; // რიცხვების სხვაობა
+        let product = num1 * num2; // რიცხვების ნაყოფი
+        let quotient = num1 / num2; // რიცხვების გაყოფა
+
+        // შედეგების კონსოლზე გამოყვანა
+        console.log('Sum: ' + sum); // ჯამი გამოიტანს
+        console.log('Difference: ' + difference); // სხვაობა გამოიტანს
+        console.log('Product: ' + product); // ნაყოფი გამოიტანს
+        console.log('Quotient: ' + quotient); // გაყოფა გამოიტანს
+    </script>
+
+</body>
+</html>

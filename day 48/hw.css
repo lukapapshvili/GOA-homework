@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* ფორმებს შორის სივრცე */
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db; /* კვადრატის ფერი */
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c; /* წრის ფერი */
+    border-radius: 50%; /* ფორმის გაწვდენა */
+}
+
+.rectangle {
+    width: 150px;
+    height: 100px;
+    background-color: #f1c40f; /* მართკუთხედის ფერი */
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #2ecc71; /* სამკუთხედის ფერი */
+}
+
+.pentagon {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #9b59b6; /* ხუთკუთხედის ფერი */
+    position: relative;
+    margin-left: -50px; /* ცენტრში გასწორება */
+}
+
+.pentagon:after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: #9b59b6; /* ხუთკუთხედის ფერი */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* ფორმის გაწვდენა */
+}
+
+.oval {
+    width: 150px;
+    height: 100px;
+    background-color: #34495e; /* ოვალის ფერი */
+    border-radius: 50%; /* ფორმის გაწვდენა */
+}
+
+.star {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #f39c12; /* ვარსკვლავის ფერი */
+    position: relative;
+    margin-left: -50px; /* ცენტრში გასწორება */
+}
+
+.star:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid #f39c12; /* ვარსკვლავის ზედა ნაწილისთვის */
+    position: absolute;
+    left: -50px;
+    top: 30px;
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c; /* გულის ფერი */
+    position: relative;
+    transform: rotate(-45deg); /* ფორმის გასწორება */
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: #e74c3c; /* გულის ფერი */
+    border-radius: 50%; /* წრეები */
+    position: absolute;
+}
+
+.heart:before {
+    top: -50px; /* ზემოთ გასწორება */
+    left: 0;
+}
+
+.heart:after {
+    left: 50px; /* მარჯვნივ გასწორება */
+    top: 0;
+}

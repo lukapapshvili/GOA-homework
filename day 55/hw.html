@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>კალკულატორი</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>მარტივი კალკულატორი</h1>
+
+    <label for="num1">პირველი რიცხვი:</label>
+    <input type="number" id="num1" placeholder="შეიყვანეთ რიცხვი" required>
+    <br>
+
+    <label for="num2">მეორე რიცხვი:</label>
+    <input type="number" id="num2" placeholder="შეიყვანეთ რიცხვი" required>
+    <br>
+
+    <label for="operation">აირჩიეთ ოპერაცია:</label>
+    <select id="operation">
+        <option value="+">მიმატება (+)</option>
+        <option value="-">გამოკლება (-)</option>
+    </select>
+    <br>
+
+    <button onclick="calculate()">გამოთვალე</button>
+
+    <h2>შედეგი: <span id="result">-</span></h2>
+
+    <script>
+        function calculate() {
+            // შედგენა და ამოღება რიცხვების და ოპერაციის მონაცემების
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var operation = document.getElementById('operation').value;
+
+            // შედეგის გამოთვლა
+            var result;
+            if (operation === "+") {
+                result = num1 + num2;
+            } else if (operation === "-") {
+                result = num1 - num2;
+            } else {
+                result = "არასწორი ოპერაცია!";
+            }
+
+            // შედეგის განახლება
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+</body>
+</html>

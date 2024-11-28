@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            transition: transform 0.5s ease; /* Transition effect for smooth change */
+        }
+        img:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Transition for button */
+        }
+        button:hover {
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="title">დააჭირე ღილაკს სურათის შეცვლისთვის</h1>
+    <img id="myImage" src="https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.dDbjgkmODk30dARkxZintwHaHa%26pid%3DApi&sp=1728141848T76f16b0a984f95c90c0329bd4b150244259a783a6cbd0387109bc0e54cf64401" alt="Image" />
+    <br>
+    <button id="button1" onclick="changeImage('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.dDbjgkmODk30dARkxZintwHaHa%26pid%3DApi&sp=1728141848T76f16b0a984f95c90c0329bd4b150244259a783a6cbd0387109bc0e54cf64401')">სურათი 1</button>
+    <button id="button2" onclick="changeImage('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.8v5BwdIV-zaVsOjK-hOaBQHaHa%26pid%3DApi&sp=1728141848T75ade9d3ac6e431c67d8c3c4dc5207237504380cc8027f8206a64d3480da0697')">სურათი 2</button>
+
+    <script>
+        function changeImage(imageSrc) {
+            document.getElementById('myImage').src = imageSrc;
+        }
+
+        // Internal JavaScript to change attributes
+        document.getElementById('button1').style.backgroundColor = 'lightblue';
+        document.getElementById('button2').style.backgroundColor = 'lightgreen';
+        document.getElementById('title').style.color = 'darkblue';
+        document.getElementById('title').innerHTML = 'ღილაკი დაჭერით სურათის შეცვლისთვის';
+        document.getElementById('myImage').alt = 'New Image'; // Update alt attribute
+    </script>
+
+</body>
+</html>

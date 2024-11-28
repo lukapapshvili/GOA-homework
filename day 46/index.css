@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.navbar h1 {
+    color: white;
+    margin: 0;
+}
+
+.menu {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #444;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 0; /* Collapse the menu */
+}
+
+.menu.active {
+    display: flex;
+    max-height: 200px; /* Expandable height */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+}
+
+@media (min-width: 600px) {
+    .menu {
+        display: flex !important; /* Show menu on larger screens */
+        position: static;
+        max-height: none; /* Disable height limit */
+    }
+    .toggle-button {
+        display: none; /* Hide toggle button on larger screens */
+    }
+}
