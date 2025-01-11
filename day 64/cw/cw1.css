@@ -1,0 +1,86 @@
+/* საერთო სტილები */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.instructions {
+    color: #e0f7fa;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* მთავარი კონტეინერი */
+.game-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* ღილაკების სტილი */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.move-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.move-btn span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.move-btn:hover {
+    background: #0056b3;
+    transform: translateY(-5px);
+}
+
+/* შედეგის სტილი */
+.result-container {
+    margin-top: 20px;
+}
+
+.choice {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #555;
+}
+
+.winner {
+    font-size: 1.5rem;
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px #d4edda;
+}

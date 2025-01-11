@@ -1,0 +1,136 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to bottom right, #2b5876, #4e4376);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.instructions {
+    color: #eee;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Glassmorphism Container */
+.game-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    animation: fadeIn 1s ease-in-out;
+    color: #333;
+}
+
+/* Player Section */
+.player-section {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 15px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.player-section h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+input {
+    width: 60px;
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    outline: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+input:focus {
+    transform: scale(1.1);
+    border: 2px solid #2b5876;
+}
+
+/* Compare Button */
+.compare-btn {
+    background: linear-gradient(to right, #28a745, #28c748);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.compare-btn:hover {
+    background: linear-gradient(to right, #1e8f3e, #1f9f3f);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Result Display */
+.result {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2b5876;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.5s ease-in-out;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pop-in Animation */
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

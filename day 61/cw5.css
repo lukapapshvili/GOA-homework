@@ -1,0 +1,80 @@
+/* ძირითადი სტილი */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* კონტეინერი */
+.counter-container {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 300px;
+}
+
+/* ქაუნთერის ციფრები */
+.counter {
+    font-size: 5rem;
+    margin: 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.counter.negative {
+    color: #dc3545; /* წითელი */
+    transform: scale(1.1);
+}
+
+.counter.positive {
+    color: #28a745; /* მწვანე */
+    transform: scale(1.1);
+}
+
+/* ღილაკების სტილები */
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.increment {
+    background: #28a745; /* მწვანე */
+}
+
+.btn.increment:hover {
+    background: #218838;
+    transform: scale(1.1);
+}
+
+.btn.decrement {
+    background: #dc3545; /* წითელი */
+}
+
+.btn.decrement:hover {
+    background: #c82333;
+    transform: scale(1.1);
+}
+
+.btn.reset {
+    background: #007bff; /* ლურჯი */
+}
+
+.btn.reset:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}

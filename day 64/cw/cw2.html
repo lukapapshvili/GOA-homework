@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Comparison Game</title>
+    <link rel="stylesheet" href="cw2.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏆 Player Attribute Battle 🏆</h1>
+        <p class="instructions">Enter attributes for each player and find out who wins!</p>
+        
+        <!-- Player 1 Input -->
+        <div class="player-section">
+            <h2>Player 1</h2>
+            <div class="input-group">
+                <label>Strength: <input type="number" id="p1-strength" min="0" placeholder="0"></label>
+                <label>Speed: <input type="number" id="p1-speed" min="0" placeholder="0"></label>
+                <label>Intelligence: <input type="number" id="p1-intelligence" min="0" placeholder="0"></label>
+            </div>
+        </div>
+
+        <!-- Player 2 Input -->
+        <div class="player-section">
+            <h2>Player 2</h2>
+            <div class="input-group">
+                <label>Strength: <input type="number" id="p2-strength" min="0" placeholder="0"></label>
+                <label>Speed: <input type="number" id="p2-speed" min="0" placeholder="0"></label>
+                <label>Intelligence: <input type="number" id="p2-intelligence" min="0" placeholder="0"></label>
+            </div>
+        </div>
+
+        <!-- Compare Button -->
+        <button class="compare-btn" onclick="determineWinner()">Compare Players</button>
+
+        <!-- Result Display -->
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="cw2.js"></script>
+</body>
+</html>

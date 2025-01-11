@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker Mini</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: linear-gradient(135deg, #ffcc33, #ff9966);
+            color: #333;
+            overflow: hidden;
+        }
+        .cookie {
+            width: 150px;
+            height: 150px;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            transition: transform 0.2s;
+        }
+        .cookie:hover {
+            transform: scale(1.2) rotate(15deg);
+        }
+        @keyframes bounce {
+            0%, 50%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-20px); }
+            75% { transform: translateY(-10px); }
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 28px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .falling-cookie {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Clicker Mini</h1>
+    <button class="cookie" id="cookie"></button>
+    <div class="score" id="score">Score: 0</div>
+
+    <script>
+        let score = 0;
+        let pointsPerClick = 1;
+
+        function createFallingCookie() {
+            const fallingCookie = document.createElement('div');
+            fallingCookie.classList.add('falling-cookie');
+            fallingCookie.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(fallingCookie);
+
+            setTimeout(() => fallingCookie.remove(), 3000);
+        }
+
+        document.getElementById('cookie').addEventListener('click', () => {
+            score += pointsPerClick;
+            document.getElementById('score').textContent = `Score: ${score}`;
+            createFallingCookie();
+            if (score % 100 === 0) pointsPerClick *= 2;
+        });
+
+        setInterval(createFallingCookie, 800);
+    </script>
+</body>
+</html>

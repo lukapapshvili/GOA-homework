@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>გამარჯობა-ნახვამდის</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #F9F9F9, #E4E4E4);
+            color: #333333;
+            margin: 0;
+        }
+
+        #text {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        #text.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            background: #6C63FF;
+            color: white;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background: #574B90;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div id="text">გამარჯობა</div>
+    <button id="toggleButton">შეცვლა</button>
+
+    <script>
+        const textElement = document.getElementById('text');
+        const button = document.getElementById('toggleButton');
+
+        let isHello = true; // თუ ტექსტი არის "გამარჯობა"
+
+        button.addEventListener('click', () => {
+            textElement.classList.add('hidden'); // ტექსტის გაქრობა (transition)
+            
+            setTimeout(() => {
+                // ტექსტის ცვლილება
+                textElement.textContent = isHello ? 'ნახვამდის' : 'გამარჯობა';
+                isHello = !isHello;
+
+                textElement.classList.remove('hidden'); // ტექსტის დაბრუნება
+            }, 500); // დაელოდოს transition-ის დასრულებას
+        });
+    </script>
+</body>
+</html>

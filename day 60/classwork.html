@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" confrim ="width=device-width, initial-scale=1.0">
+    <title>თქვენი არჩევანი</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .large-text {
+            font-size: 1.5em;
+        }
+        .long-text {
+            max-width: 800px;
+        }
+    </style>
+</head>
+<body>
+    <h1>გთხოვთ, აირჩიოთ პარამეტრები:</h1>
+    
+    <form id="preferencesForm">
+        <label>
+            <input type="checkbox" id="darkMode"> შავი ეკრანი (Dark Mode)
+        </label><br>
+        
+        <label>
+            <input type="checkbox" id="largeText"> დიდი ტექსტი
+        </label><br>
+        
+        <label>
+            <input type="checkbox" id="longText"> გრძელი ტექსტი
+        </label><br><br>
+        
+        <button type="button" onclick="applyPreferences()">შეიტანეთ არჩევანი</button>
+    </form>
+    
+    <div id="result" style="margin-top: 20px;">
+        <h2>თქვენი შესაბამისი საიტი:</h2>
+        <div id="sitePreview">
+            <p>ეს არის ჩვეულებრივი ტექსტი საიტზე. აირჩიეთ პარამეტრები და გაითვალისწინეთ შედეგი.</p>
+        </div>
+    </div>
+
+    <script>
+        function applyPreferences() {
+            var darkMode = document.getElementById('darkMode').checked;
+            var largeText = document.getElementById('largeText').checked;
+            var longText = document.getElementById('longText').checked;
+
+            var sitePreview = document.getElementById('sitePreview');
+            sitePreview.className = '';  // Reset previous classes
+            
+            if (darkMode) {
+                sitePreview.classList.add('dark-mode');
+            }
+            if (largeText) {
+                sitePreview.classList.add('large-text');
+            }
+            if (longText) {
+                sitePreview.innerHTML = '<p>ეს არის უფრო გრძელი ტექსტი. კოვიდ-19 არის ვირუსი, რომელიც ფართოდ გავრცელდა მთელს მსოფლიოში. მისი გავლენა გრძელდება და კვლავ გამოწვევას წარმოადგენს საზოგადოებისა და ჯანმრთელობის სფეროებში. მეცნიერები მუშაობენ მის საწინააღმდეგო მკურნალობაზე და ვ.</p>';
+            } else {
+                sitePreview.innerHTML = '<p>ეს არის ჩვეულებრივი ტექსტი საიტზე. აირჩიეთ პარამეტრები და გაითვალისწინეთ შედეგი.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+button {
+    display: inline-block;
+    padding: 15px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff5f9e, #ff6a7d);
+    transform: scale(1.1);
+}
+
+button:disabled {
+    background: linear-gradient(135deg, #d3d3d3, #bbbbbb);
+    color: #666;
+    cursor: not-allowed;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.upgrade-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background: linear-gradient(135deg, #ffdf8e, #ffc75f);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.upgrade-item:hover {
+    background: linear-gradient(135deg, #ffd45c, #ffbb33);
+    transform: scale(1.1);
+}
+
+.upgrade-item:disabled {
+    background: linear-gradient(135deg, #d3d3d3, #bbbbbb);
+    cursor: not-allowed;
+}
+
+.upgrade-item:active {
+    transform: scale(0.95);
+}

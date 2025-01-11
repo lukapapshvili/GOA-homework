@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="cw1.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Rock, Paper, Scissors</h1>
+        <p class="instructions">Choose your move and challenge the computer!</p>
+
+        <!-- ღილაკების კონტეინერი -->
+        <div class="buttons">
+            <button class="move-btn" onclick="playGame('rock')">
+                ✊ <span>Rock</span>
+            </button>
+            <button class="move-btn" onclick="playGame('paper')">
+                ✋ <span>Paper</span>
+            </button>
+            <button class="move-btn" onclick="playGame('scissors')">
+                ✌ <span>Scissors</span>
+            </button>
+        </div>
+
+        <!-- შედეგის გამოტანის ადგილი -->
+        <div id="result" class="result-container">
+            <p id="player-choice" class="choice"></p>
+            <p id="computer-choice" class="choice"></p>
+            <p id="winner" class="winner"></p>
+        </div>
+    </div>
+
+    <script src="cw1.js"></script>
+</body>
+</html>
