@@ -1,0 +1,1 @@
+# 2) იმუშავეთ padding, margin, border, width and height სახლში, აუხსენით თქვენს ენაზე თქვენს მეგობრებს თუ რა არის box model მთლიანობაში
