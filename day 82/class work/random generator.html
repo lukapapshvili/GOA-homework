@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Generator</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="java.js">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #8360c3, #2ebf91);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #fff;
+        }
+        button {
+            margin: 10px;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        .start {
+            background-color: #28a745;
+            color: white;
+        }
+        .start:hover {
+            background-color: #218838;
+        }
+        .stop {
+            background-color: #dc3545;
+            color: white;
+        }
+        .stop:hover {
+            background-color: #c82333;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <label>
+                <input type="radio" name="mode" id="number" checked> რიცხვი
+            </label>
+            <label>
+                <input type="radio" name="mode" id="letter"> ასო
+            </label>
+        </div>
+        <div class="display" id="display">-</div>
+        <button class="start" id="start">გასტარტვა</button>
+        <button class="stop" id="stop">გაჩერება</button>
+    </div>
+    <script>
+        let mode = "number";
+        let interval;
+
+        document.getElementById("number").addEventListener("click", () => mode = "number");
+        document.getElementById("letter").addEventListener("click", () => mode = "letter");
+
+        document.getElementById("start").addEventListener("click", () => {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                let value;
+                if (mode === "number") {
+                    value = Math.floor(Math.random() * 100) + 1;
+                } else {
+                    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    value = letters[Math.floor(Math.random() * letters.length)];
+                }
+                document.getElementById("display").innerText = value;
+            }, 1000);
+        });
+
+        document.getElementById("stop").addEventListener("click", () => {
+            clearInterval(interval);
+        });
+    </script>
+</body>
+</html>

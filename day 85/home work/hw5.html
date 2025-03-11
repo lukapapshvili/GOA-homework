@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Style Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        p {
+            font-size: 1.5em;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Example using getElementsByTagName and .style</h1>
+    <p>This is paragraph 1</p>
+    <p>This is paragraph 2</p>
+    <p>This is paragraph 3</p>
+    <button id="changeText">Change Text Style</button>
+    <button id="changeBackground">Change Background Color</button>
+
+    <script>
+        document.getElementById("changeText").addEventListener("click", function() {
+            let paragraphs = document.getElementsByTagName("p");
+            for (let i = 0; i < paragraphs.length; i++) {
+                // Change text style using .style
+                paragraphs[i].style.fontSize = "2em";
+                paragraphs[i].style.color = "green";
+                paragraphs[i].style.fontWeight = "bold";
+            }
+        });
+
+        document.getElementById("changeBackground").addEventListener("click", function() {
+            let paragraphs = document.getElementsByTagName("p");
+            for (let i = 0; i < paragraphs.length; i++) {
+                // Change background color of paragraphs
+                paragraphs[i].style.backgroundColor = "yellow";
+            }
+        });
+    </script>
+</body>
+</html>

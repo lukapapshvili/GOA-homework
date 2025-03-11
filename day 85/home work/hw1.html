@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Element By ID Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px auto;
+            line-height: 200px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Hello, World!</h1>
+    <div id="box">Box</div>
+    <button id="changeText">Change Text</button>
+    <button id="changeColor">Change Color</button>
+
+    <script>
+        document.getElementById("changeText").addEventListener("click", function() {
+            document.getElementById("title").innerText = "Text Changed!";
+        });
+
+        document.getElementById("changeColor").addEventListener("click", function() {
+            document.getElementById("box").style.backgroundColor = "tomato";
+        });
+    </script>
+</body>
+</html>

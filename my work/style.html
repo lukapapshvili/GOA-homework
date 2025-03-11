@@ -3,20 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candy Clicker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #141E30, #243B55);
+            color: white;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        input {
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid white;
+            border-radius: 10px;
+            outline: none;
+            text-align: center;
+            width: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        input:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .start {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+        }
+        .start:hover {
+            background: linear-gradient(135deg, #00a087, #85b830);
+        }
+        .stop {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            color: white;
+        }
+        .stop:hover {
+            background: linear-gradient(135deg, #e83b5b, #e03920);
+        }
+        #display {
+            margin-top: 25px;
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            min-height: 80px;
+        }
+    </style>
 </head>
 <body>
-    <div class="game-container">
-        <h1 class="game-title">Candy Clicker</h1>
-        <div class="candy-counter">Candies: <span id="candy-count">0</span></div>
-        <button id="candy-button" class="candy-button">🍬 Click Me!</button>
-        <div class="upgrades">
-            <h2>Upgrades</h2>
-            <button id="auto-clicker" class="upgrade-button" disabled>Auto Clicker (10 candies)</button>
-            <button id="double-candy" class="upgrade-button" disabled>Double Candy (50 candies)</button>
-        </div>
+    <h1>Countdown Timer</h1>
+    <input type="number" id="timeInput" min="0" max="10000" placeholder="Enter time in milliseconds">
+    <div class="button-container">
+        <button class="start" onclick="startCountdown()">Start</button>
+        <button class="stop" onclick="stopCountdown()">Stop</button>
     </div>
-    <script src="script.js"></script>
+    <div id="display"></div>
+
+    <script>
+        let timer;
+        let counter = 0;
+        let targetTime = 0;
+
+        function startCountdown() {
+            stopCountdown();
+            counter = 0;
+            targetTime = parseInt(document.getElementById('timeInput').value) / 1000;
+            if (isNaN(targetTime) || targetTime <= 0) {
+                document.getElementById('display').innerText = "Please enter a valid time";
+                return;
+            }
+            document.getElementById('display').innerText = '';
+            timer = setInterval(() => {
+                counter++;
+                if (counter > targetTime) {
+                    clearInterval(timer);
+                    document.getElementById('display').innerText = "Time's up";
+                } else {
+                    document.getElementById('display').innerText = counter;
+                }
+            }, 1000);
+        }
+
+        function stopCountdown() {
+            clearInterval(timer);
+        }
+    </script>
 </body>
 </html>

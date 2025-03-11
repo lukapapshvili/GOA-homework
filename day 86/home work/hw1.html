@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style Divs Using JavaScript</title>
+    <style>
+        /* ზოგადი სტილი div-ისთვის */
+        div {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Style Divs with JavaScript</h1>
+    
+    <div id="div1">Div 1</div>
+    <div id="div2">Div 2</div>
+    <div id="div3">Div 3</div>
+    <div id="div4">Div 4</div>
+    <div id="div5">Div 5</div>
+    <div id="div6">Div 6</div>
+    <div id="div7">Div 7</div>
+    <div id="div8">Div 8</div>
+    <div id="div9">Div 9</div>
+    <div id="div10">Div 10</div>
+
+    <script>
+        // ცვლადები თითოეული div-ისთვის
+        for (let i = 1; i <= 10; i++) {
+            let div = document.getElementById("div" + i);
+            
+            // შესაცვლელი სტილი
+            div.style.fontSize = "20px";
+            div.style.color = "white";
+            div.style.padding = "20px";
+
+            // განსხვავებული ფერი
+            switch (i) {
+                case 1:
+                    div.style.backgroundColor = "red";
+                    break;
+                case 2:
+                    div.style.backgroundColor = "blue";
+                    break;
+                case 3:
+                    div.style.backgroundColor = "green";
+                    break;
+                case 4:
+                    div.style.backgroundColor = "orange";
+                    break;
+                case 5:
+                    div.style.backgroundColor = "purple";
+                    break;
+                case 6:
+                    div.style.backgroundColor = "yellow";
+                    break;
+                case 7:
+                    div.style.backgroundColor = "pink";
+                    break;
+                case 8:
+                    div.style.backgroundColor = "brown";
+                    break;
+                case 9:
+                    div.style.backgroundColor = "cyan";
+                    break;
+                case 10:
+                    div.style.backgroundColor = "grey";
+                    break;
+                default:
+                    div.style.backgroundColor = "black";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

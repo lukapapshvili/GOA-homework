@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements By Tag Name Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        p {
+            font-size: 1.5em;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Example using getElementsByTagName</h1>
+    <p>This is paragraph 1</p>
+    <p>This is paragraph 2</p>
+    <p>This is paragraph 3</p>
+    <button id="changeText">Change Text</button>
+    <button id="changeColor">Change Color</button>
+
+    <script>
+        document.getElementById("changeText").addEventListener("click", function() {
+            let paragraphs = document.getElementsByTagName("p");
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].innerHTML = "Text Changed with <strong>HTML</strong>!";
+            }
+        });
+
+        document.getElementById("changeColor").addEventListener("click", function() {
+            let paragraphs = document.getElementsByTagName("p");
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

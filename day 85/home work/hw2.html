@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Elements By Class Name Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            margin: 20px auto;
+            line-height: 200px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Hello, World!</h1>
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    <button id="changeText">Change Text</button>
+    <button id="changeColor">Change Color</button>
+
+    <script>
+        document.getElementById("changeText").addEventListener("click", function() {
+            let elements = document.getElementsByClassName("title");
+            for (let i = 0; i < elements.length; i++) {
+                elements[i].innerText = "Text Changed!";
+            }
+        });
+
+        document.getElementById("changeColor").addEventListener("click", function() {
+            let boxes = document.getElementsByClassName("box");
+            for (let i = 0; i < boxes.length; i++) {
+                boxes[i].style.backgroundColor = "tomato";
+            }
+        });
+    </script>
+</body>
+</html>
