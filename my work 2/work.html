@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სილამაზის სალონი</title>
+    <style>
+        /* ძირითადი სტილი */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* შავი ფონური */
+            color: white;
+            text-align: center;
+        }
+
+        /* ჰედერის სტილი */
+        header {
+            background-color: #ff6f00; /* სტაფილოსფერი */
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* ლოგინ-ლინკი */
+        .login-link {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* კატეგორიების ფოტოები */
+        .category-images {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            flex-wrap: wrap; /* რეპონტული დიზაინი */
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category-images div {
+            width: 30%;
+            text-align: center;
+            background-color: #444; /* შავი ფონური */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .category-images img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            max-height: 200px; /* ფოტო მაქსიმალური სიმაღლე */
+            object-fit: cover;
+        }
+
+        /* ქვედა ფეხი */
+        footer {
+            margin-top: 20px;
+            background-color: #ff6f00; /* სტაფილოსფერი */
+            color: white;
+            padding: 10px;
+        }
+
+        /* რეგისტრაციის ფორმის სტილი */
+        .register-form {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .register-form input {
+            margin: 10px;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            background-color: #555;
+            color: white;
+        }
+
+        .register-form button {
+            background-color: #ff6f00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .register-form button:hover {
+            background-color: #e55a00;
+        }
+
+        /* Responsive media queries */
+        @media (max-width: 768px) {
+            .category-images {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .category-images div {
+                width: 80%;
+            }
+        }
+
+        /* კატეგორიის სექციის სტილი */
+        .category-section {
+            display: none;
+            margin-top: 20px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .category-section.active {
+            display: block;
+        }
+
+        /* გამოსვლის ღილაკი */
+        .back-button {
+            background-color: #ff6f00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #e55a00;
+        }
+
+        /* რეგისტრაციის დაბრუნების ღილაკი */
+        .back-to-home-button {
+            background-color: #ff6f00;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-to-home-button:hover {
+            background-color: #e55a00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span>სილამაზის სალონი</span>
+        <a href="#" class="login-link" onclick="showLogin()">Log In</a>
+    </header>
+
+    <!-- კატეგორიების ფოტოები -->
+    <div class="category-images">
+        <div>
+            <img src="https://i.imgur.com/dSkdGZE.jpg" alt="თმის შეჭრა" onclick="showCategory('haircut')">
+            <p>შეჭრა</p>
+        </div>
+        <div>
+            <img src="https://i.imgur.com/yourimage2.jpg" alt="მაკიაჟი" onclick="showCategory('makeup')">
+            <p>მაკიაჟი</p>
+        </div>
+        <div>
+            <img src="https://i.imgur.com/yourimage3.jpg" alt="მასაჟი" onclick="showCategory('massage')">
+            <p>მასაჟი</p>
+        </div>
+    </div>
+
+    <!-- კატეგორიის სექცია -->
+    <div id="haircut-section" class="category-section">
+        <h2>შეჭრის ფასები</h2>
+        <ul>
+            <li>თმის შეჭრა - 30₾</li>
+            <li>შეჭრა + სტილიზაცია - 50₾</li>
+        </ul>
+        <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
+    </div>
+
+    <div id="makeup-section" class="category-section">
+        <h2>მაკიაჟის ფასები</h2>
+        <ul>
+            <li>მაკიაჟი - 40₾</li>
+            <li>მაკიაჟი + ვარცხნილობა - 70₾</li>
+        </ul>
+        <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
+    </div>
+
+    <div id="massage-section" class="category-section">
+        <h2>მასაჟის ფასები</h2>
+        <ul>
+            <li>სახის მასაჟი - 50₾</li>
+            <li>სრული მასაჟი - 80₾</li>
+        </ul>
+        <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
+    </div>
+
+    <!-- რეგისტრაციის ფორმა -->
+    <div class="register-form" id="register-form">
+        <h2>რეგისტრაცია</h2>
+        <form>
+            <input type="text" placeholder="სახელი" required>
+            <input type="email" placeholder="ელ. ფოსტა" required>
+            <input type="password" placeholder="პაროლი" required>
+            <button type="submit">დარეგისტრირდი</button>
+        </form>
+        <!-- რეგისტრაციისგან დაბრუნება -->
+        <button class="back-to-home-button" onclick="backToHome()">უკან დაბრუნება</button>
+    </div>
+
+    <footer>
+        კონტაქტი: +995 555 123 456 | მისამართი: თბილისი, საქართველო
+    </footer>
+
+    <script>
+        // რეგისტრაციის ფორმის გამოჩენა
+        function showLogin() {
+            const registerForm = document.getElementById("register-form");
+            registerForm.style.display = "block"; // გამოსაჩენი ხდება
+        }
+
+        // კატეგორიის სექციის გადახედვა
+        function showCategory(category) {
+            // ყველა კატეგორიის სექცია დავმალოთ
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // შესაბამისი კატეგორიის სექცია გამოვაჩინოთ
+            const categorySection = document.getElementById(`${category}-section`);
+            categorySection.classList.add('active');
+        }
+
+        // უკან დაბრუნება მთავარ გვერდზე
+        function backToHome() {
+            // დავმალოთ ყველა კატეგორიის სექცია
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // დავმალოთ რეგისტრაციის ფორმა
+            document.getElementById("register-form").style.display = "none"; 
+        }
+    </script>
+</body>
+</html>
