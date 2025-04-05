@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Clicker Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Car Clicker Game</h1>
+            <div id="value-display" class="value-display">$0</div>
+        </header>
+
+        <section class="game-content">
+            <div class="car-container">
+                <button id="click-button" class="click-button">Click to Earn!</button>
+                <div id="car" class="car">🚗</div>
+            </div>
+
+            <section class="upgrades">
+                <h2>Upgrades</h2>
+                <div id="upgrades-list" class="upgrades-list"></div>
+            </section>
+
+            <section class="achievements">
+                <h2>Achievements</h2>
+                <div id="achievements-list" class="achievements-list"></div>
+            </section>
+
+            <section class="prestige">
+                <h2>Prestige</h2>
+                <button id="prestige-button" class="prestige-button" onclick="prestigeGame()">Prestige</button>
+            </section>
+        </section>
+    </div>
+
+    <footer>
+        <p>Crafted with ❤️ by You</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
