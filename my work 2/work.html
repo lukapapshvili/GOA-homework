@@ -4,41 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>სილამაზის სალონი</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ძირითადი სტილი */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333; /* შავი ფონური */
-            color: white;
+            background-color: #fff8e1;
+            color: #4e342e;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
-        /* ჰედერის სტილი */
         header {
-            background-color: #ff6f00; /* სტაფილოსფერი */
-            color: white;
+            background-color: #ffca28;
+            color: #4e342e;
             padding: 20px;
             font-size: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background-color 0.3s ease-in-out;
         }
 
-        /* ლოგინ-ლინკი */
-        .login-link {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
+        header:hover {
+            background-color: #ffb300;
         }
 
-        /* კატეგორიების ფოტოები */
         .category-images {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
-            flex-wrap: wrap; /* რეპონტული დიზაინი */
+            flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
         }
@@ -46,220 +43,244 @@
         .category-images div {
             width: 30%;
             text-align: center;
-            background-color: #444; /* შავი ფონური */
+            background-color: #fff3c4;
             padding: 10px;
             border-radius: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .category-images div:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .category-images img {
             width: 100%;
             border-radius: 8px;
             cursor: pointer;
-            max-height: 200px; /* ფოტო მაქსიმალური სიმაღლე */
+            max-height: 200px;
             object-fit: cover;
         }
 
-        /* ქვედა ფეხი */
         footer {
             margin-top: 20px;
-            background-color: #ff6f00; /* სტაფილოსფერი */
-            color: white;
+            background-color: #ffca28;
+            color: #4e342e;
             padding: 10px;
+            transition: background-color 0.3s ease-in-out;
         }
 
-        /* რეგისტრაციის ფორმის სტილი */
-        .register-form {
-            display: none; /* Initially hidden */
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #444;
-            border-radius: 10px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        footer:hover {
+            background-color: #ffb300;
         }
 
-        .register-form input {
+        /* Buttons for showing "about" and "booking" sections */
+        .show-section-btn {
+            background-color: #ffca28;
+            color: #4e342e;
+            padding: 15px 25px;
+            border-radius: 30px;
+            border: none;
             margin: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .show-section-btn:hover {
+            background-color: #ffb300;
+            transform: scale(1.05);
+        }
+
+        .about-section, .booking-section {
+            background-color: #fff3c4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+            display: none;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .about-section.active, .booking-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-section h2, .booking-section h2 {
+            color: #4e342e;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .booking-section form input,
+        .booking-section form textarea {
+            margin: 10px 0;
             padding: 10px;
             width: 100%;
             border-radius: 5px;
-            border: 1px solid #fff;
-            background-color: #555;
-            color: white;
+            border: 1px solid #4e342e;
+            background-color: #fff9db;
+            color: #4e342e;
         }
 
-        .register-form button {
-            background-color: #ff6f00;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+        .booking-section form button {
+            background-color: #ffca28;
+            color: #4e342e;
             border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
             cursor: pointer;
-            margin-top: 10px;
+            transition: background-color 0.3s ease-in-out;
         }
 
-        .register-form button:hover {
-            background-color: #e55a00;
+        .booking-section form button:hover {
+            background-color: #ffb300;
         }
 
-        /* Responsive media queries */
-        @media (max-width: 768px) {
-            .category-images {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .category-images div {
-                width: 80%;
-            }
-        }
-
-        /* კატეგორიის სექციის სტილი */
-        .category-section {
-            display: none;
-            margin-top: 20px;
-            background-color: #444;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .category-section.active {
-            display: block;
-        }
-
-        /* გამოსვლის ღილაკი */
         .back-button {
-            background-color: #ff6f00;
-            color: white;
+            background-color: #ffca28;
+            color: #4e342e;
             padding: 10px 20px;
             border-radius: 5px;
             border: none;
             cursor: pointer;
             margin-top: 20px;
+            transition: background-color 0.3s ease-in-out;
         }
+
         .back-button:hover {
-            background-color: #e55a00;
+            background-color: #ffb300;
         }
 
-        /* რეგისტრაციის დაბრუნების ღილაკი */
-        .back-to-home-button {
-            background-color: #ff6f00;
-            color: white;
-            padding: 10px 20px;
+        .about-section p {
+            font-size: 16px;
+            color: #4e342e;
+            margin-bottom: 15px;
+        }
+
+        .login-form {
+            display: none;
+            padding: 20px;
+            background-color: #fff3c4;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .login-form input,
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
             border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
         }
 
-        .back-to-home-button:hover {
-            background-color: #e55a00;
+        .login-form button {
+            background-color: #ffca28;
+            color: #4e342e;
+            border: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .login-form button:hover {
+            background-color: #ffb300;
         }
     </style>
 </head>
 <body>
     <header>
         <span>სილამაზის სალონი</span>
-        <a href="#" class="login-link" onclick="showLogin()">Log In</a>
+        <a href="#" class="login-link" onclick="showLogin()">შესვლა</a>
     </header>
 
-    <!-- კატეგორიების ფოტოები -->
     <div class="category-images">
         <div>
-            <img src="https://i.imgur.com/dSkdGZE.jpg" alt="თმის შეჭრა" onclick="showCategory('haircut')">
+            <i class="fas fa-cut"></i>
+            <img src="cut.png" alt="თმის შეჭრა" onclick="showCategory('haircut')">
             <p>შეჭრა</p>
         </div>
         <div>
-            <img src="https://i.imgur.com/yourimage2.jpg" alt="მაკიაჟი" onclick="showCategory('makeup')">
+            <i class="fas fa-paint-brush"></i>
+            <img src="makeup.png" alt="მაკიაჟი" onclick="showCategory('makeup')">
             <p>მაკიაჟი</p>
         </div>
         <div>
-            <img src="https://i.imgur.com/yourimage3.jpg" alt="მასაჟი" onclick="showCategory('massage')">
+            <i class="fas fa-spa"></i>
+            <img src="masage.png" alt="მასაჟი" onclick="showCategory('massage')">
             <p>მასაჟი</p>
         </div>
     </div>
 
-    <!-- კატეგორიის სექცია -->
-    <div id="haircut-section" class="category-section">
-        <h2>შეჭრის ფასები</h2>
-        <ul>
-            <li>თმის შეჭრა - 30₾</li>
-            <li>შეჭრა + სტილიზაცია - 50₾</li>
-        </ul>
+    <!-- "ჩვენს შესახებ" და "დაჯავშნა" ღილაკები -->
+    <button class="show-section-btn" onclick="showAboutSection()">ჩვენს შესახებ</button>
+    <button class="show-section-btn" onclick="showBookingSection()">დაჯავშნა</button>
+
+    <!-- "ჩვენს შესახებ" სექცია -->
+    <div class="about-section" id="about-section">
+        <h2>ჩვენს შესახებ</h2>
+        <p>ჩვენი სალონი გთავაზობთ ხარისხიან სერვისებს: თმის შეჭრა, მაკიაჟი და მასაჟი. ჩვენ ვქმნით მოდას და კომფორტს! 
+        თუ რამე გინდათ გაიგოთ, დაგვიკავშირდით! ნომერი: +995 178 512</p>
         <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
     </div>
 
-    <div id="makeup-section" class="category-section">
-        <h2>მაკიაჟის ფასები</h2>
-        <ul>
-            <li>მაკიაჟი - 40₾</li>
-            <li>მაკიაჟი + ვარცხნილობა - 70₾</li>
-        </ul>
-        <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
-    </div>
-
-    <div id="massage-section" class="category-section">
-        <h2>მასაჟის ფასები</h2>
-        <ul>
-            <li>სახის მასაჟი - 50₾</li>
-            <li>სრული მასაჟი - 80₾</li>
-        </ul>
-        <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
-    </div>
-
-    <!-- რეგისტრაციის ფორმა -->
-    <div class="register-form" id="register-form">
-        <h2>რეგისტრაცია</h2>
+    <!-- "დაჯავშნა" სექცია -->
+    <div class="booking-section" id="booking-section">
+        <h2>დაჯავშნა</h2>
         <form>
             <input type="text" placeholder="სახელი" required>
             <input type="email" placeholder="ელ. ფოსტა" required>
-            <input type="password" placeholder="პაროლი" required>
-            <button type="submit">დარეგისტრირდი</button>
+            <textarea placeholder="შეიყვანეთ თქვენი მოთხოვნები..." required></textarea>
+            <button type="submit">დაჯავშნა</button>
         </form>
-        <!-- რეგისტრაციისგან დაბრუნება -->
-        <button class="back-to-home-button" onclick="backToHome()">უკან დაბრუნება</button>
+        <button class="back-button" onclick="backToHome()">უკან დაბრუნება</button>
     </div>
 
     <footer>
-        კონტაქტი: +995 555 123 456 | მისამართი: თბილისი, საქართველო
+        კონტაქტი: +955 555 17 85 12 | მისამართი: თბილისი, საქართველო
     </footer>
 
     <script>
-        // რეგისტრაციის ფორმის გამოჩენა
         function showLogin() {
-            const registerForm = document.getElementById("register-form");
-            registerForm.style.display = "block"; // გამოსაჩენი ხდება
+            document.getElementById("login-form").style.display = "block";
         }
 
-        // კატეგორიის სექციის გადახედვა
+        function closeLogin() {
+            document.getElementById("login-form").style.display = "none";
+        }
+
+        // კატეგორიის გამოჩენა
         function showCategory(category) {
-            // ყველა კატეგორიის სექცია დავმალოთ
             const sections = document.querySelectorAll('.category-section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
 
-            // შესაბამისი კატეგორიის სექცია გამოვაჩინოთ
             const categorySection = document.getElementById(`${category}-section`);
             categorySection.classList.add('active');
         }
 
-        // უკან დაბრუნება მთავარ გვერდზე
-        function backToHome() {
-            // დავმალოთ ყველა კატეგორიის სექცია
-            const sections = document.querySelectorAll('.category-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
+        // "ჩვენს შესახებ" და "დაჯავშნა" სექციები
+        function showAboutSection() {
+            const aboutSection = document.getElementById("about-section");
+            aboutSection.classList.add('active');
+        }
 
-            // დავმალოთ რეგისტრაციის ფორმა
-            document.getElementById("register-form").style.display = "none"; 
+        function showBookingSection() {
+            const bookingSection = document.getElementById("booking-section");
+            bookingSection.classList.add('active');
+        }
+
+        function backToHome() {
+            const aboutSection = document.getElementById("about-section");
+            const bookingSection = document.getElementById("booking-section");
+
+            aboutSection.classList.remove('active');
+            bookingSection.classList.remove('active');
         }
     </script>
 </body>
